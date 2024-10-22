@@ -27,19 +27,14 @@ CloudArtify is a web application that utilizes Cloudinary's AI Background Remova
    cd cloudartify
    ```
 
-2. Create a virtual environment and activate it:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
-
-3. Install the required packages:
+2. Install the required packages:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Set up environment variables:
+3. Set up environment variables:
    Create a `.env` file in the root directory and add your Cloudinary and OpenAI API keys:
+
    ```plaintext
    OPENAI_API_KEY=your_openai_api_key
    CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
