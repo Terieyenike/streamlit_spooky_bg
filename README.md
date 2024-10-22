@@ -23,8 +23,8 @@ CloudArtify is a web application that utilizes Cloudinary's AI Background Remova
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/cloudartify.git
-   cd cloudartify
+   git clone https://github.com/Terieyenike/streamlit_spooky_bg
+   cd streamlit_spooky_bg
    ```
 
 2. Install the required packages:
