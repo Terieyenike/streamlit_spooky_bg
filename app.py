@@ -26,7 +26,7 @@ st.markdown("""This project uses Cloudinary AI Background Removal add-on to remo
 def upload_user_image(image):
   try:
     upload_response = cloudinary.uploader.upload(image, unique_filename=True, overwrite=False)
-    return upload_response['public_id']
+    return upload_response.get('public_id')
   except Exception as err:
     st.error(f'Error uploading the image: {err}')
     return None
@@ -48,31 +48,23 @@ def generate_image(prompt=None, user_image=None):
 
     if user_image:
       user_uploaded_image_public_id = upload_user_image(user_image)
+
       transformed_image = CloudinaryImage(user_uploaded_image_public_id).build_url(transformation=[
         {'effect': "background_removal"},
         {'width': 700, 'crop': "scale"},
         {'underlay': generated_public_id},
         {'flags': "layer_apply", 'y': -200}
       ])
-      st.markdown(f'<img src="{transformed_image}" width="700"/>', unsafe_allow_html=True)
-        # st.image(transformed_image, width=700, caption="Transformed Image")
+      st.image(f'https://res.cloudinary.com/terieyenike/image/upload/e_background_removal/c_scale,w_700/u_{generated_public_id}/fl_layer_apply,y_-200/{user_uploaded_image_public_id}')
   except Exception as err:
     st.error(f'An error occured: {err}')
 
 
 user_prompt = st.text_input('Enter a prompt to create a spooky background (optional): ')
-
-upload_file_img = st.file_uploader('Choose an image file', type=['jpg', 'jpeg'])
+upload_file_img = st.file_uploader('Choose an image file', type=['jpg', 'jpeg', 'png'])
 
 if st.button('Generate and Transform image'):
   if upload_file_img is not None:
     generate_image(user_prompt, upload_file_img)
   else:
     st.stop()
-
-
-# if upload_file_img is not None:
-#   result = cloudinary.uploader.upload(upload_file_img)
-#   st.image(result['url'])
-# else:
-#    st.error('Please upload an image file.')
