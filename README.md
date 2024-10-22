@@ -4,6 +4,9 @@ CloudArtify is a web application that utilizes Cloudinary's AI Background Remova
 
 ![generated image](dane-wetton-t1NEMSm1rgI-unsplash.jpeg)
 
+![dog on a weird bg](https://res.cloudinary.com/terieyenike/image/upload/e_background_removal/c_scale,w_700/u_zqlwangau5vfsgt5v5um/fl_layer_apply,y_-200/dm5fji3upck71duwpi4b)
+
+
 ## Features
 
 - Upload an image file (JPG, JPEG).
